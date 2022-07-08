@@ -73,4 +73,11 @@ async function get4LastSofas() {
   return res2
 }
 
+async function get4LastTables() {
+  const test3 = await fetch("http://localhost:4000/get-items-byCategory/table")
+  const data3 = await test3.json()
+  const res3 = await data3.slice(0, 4)
+  return res3
+}
+
 // getAPI2()
