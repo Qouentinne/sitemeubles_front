@@ -66,5 +66,11 @@ async function get4LastChairs() {
 }
 
 
+async function get4LastSofas() {
+  const test2 = await fetch("http://localhost:4000/get-items-byCategory/sofa")
+  const data2 = await test2.json()
+  const res2 = await data2
+  return res2
+}
 
 // getAPI2()
