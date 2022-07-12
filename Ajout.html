@@ -103,28 +103,32 @@
               <input class="form-control" type="file" id="formFile">
             </div>
             <div class="dropdown col-sm-6 mb-3 mt-3">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Catégorie 
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Chaises</a></li>
-                <li><a class="dropdown-item" href="#">Canapés</a></li>
-                <li><a class="dropdown-item" href="#">Tables</a></li>
-              </ul>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p>Choissez une catégorie :</p>
+                </div>
+                <div class="col-sm-2">
+                  <select class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton1" name="category">
+                    <option value="chaise">Chaise</option>
+                    <option value="canape">Canapé</option>
+                    <option value="table">Table</option>
+                  </select>
+                </div>
+              </div>
             </div>
             <div class="form-floating col-sm-6 mb-3 mt-3">
-              <input class="form-control" placeholder="Leave a comment here" id="nameTextarea" name="productName"></textarea>
+              <input class="form-control" placeholder="Leave a comment here" id="nameTextarea" name="name"></textarea>
               <label for="nameTextarea">Nom du Produit</label>
             </div>
             <div class="form-floating col-sm-6 mb-3 mt-3">
-              <textarea class="form-control" placeholder="Leave a comment here" id="descriptionTextarea" name="productDescription"></textarea>
+              <textarea class="form-control" placeholder="Leave a comment here" id="descriptionTextarea" name="description"></textarea>
               <label for="descriptionTextarea">Description du Produit</label>
             </div>
             <div class="form-floating col-sm-6 mb-3 mt-3">
-              <input class="form-control" placeholder="Leave a comment here" id="priceTextarea" name="productPrice"></textarea>
+              <input class="form-control" placeholder="Leave a comment here" id="priceTextarea" name="price"></textarea>
               <label for="priceTextarea">Prix proposé</label>              
             </div>
-            <button type="button" id="ajouter" class="btn btn-primary" type="submit">Ajouter</button>
+            <button id="ajouter" class="btn btn-primary" type="submit">Ajouter</button>
           </form>
       </div>
     </div>
@@ -133,9 +137,18 @@
 <!-- On veut afficher l'API dans id='titre' (html) -->
 <!-- et remplacer Pdt1,4 par id='titre' -->
     <script>
-      const form = document.getElementById("#submittingForm")
+      const form = document.getElementById("submittingForm")
       form.addEventListener('submit', (e) => {
-        e.preventDefault()
+        // Prevent default behavior
+        e.preventDefault();
+        const payload = new FormData(form)
+        payload.append("img_url", "https://res.cloudinary.com/dpngcje4c/image/upload/v1657533819/canap%C3%A9_nuage_qzfwq6.jpg")
+        console.log ([...payload])
+
+        fetch('http://localhost:4000/post-items', {
+          method: 'POST',
+          headers: payload
+        })
       })            
     </script>
 
