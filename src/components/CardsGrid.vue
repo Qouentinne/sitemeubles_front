@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-4">
       <div class="row" id="cards-container">
-        <p class="text-center display-6">Notre Sélection du Moment</p>
+        <p class="text-center display-6">{{ title }}</p>
         <ProductCard v-for="item in items" v-bind:obj="item" />
       </div>
     </div>
@@ -19,6 +19,7 @@ export default{
     props: {
         amount: Number,
         category: String,
+        title: String
     },
 
     data() {

@@ -23,6 +23,21 @@ export default{
 </script>
 
 <style scoped>
+.card-img-top{
+    height: 30%;
+    object-fit: contain;
+}
 
+.card-title{
+    margin: 6% 0;
+    height: 4rem;
+    overflow: hidden;
+
+}
+
+.card-text{
+    height: 3rem;
+    overflow: hidden;
+}
 </style>
 

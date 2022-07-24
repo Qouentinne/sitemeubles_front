@@ -73,6 +73,10 @@ export default {
 </script>
 
 <style scoped>
+.navbar{
+  padding-bottom: -60px;
+}
+
 #logohaut {
     position: relative;
     height: 15em;
