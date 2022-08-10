@@ -1,0 +1,23 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-essential"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "vue"
+  ],
+  "rules": {
+    "vue/no-unused-vars": "warn",
+    "vue/no-unused-components": "warn",
+    "vue/no-unused-properties": "warn",
+    "vue/valid-v-for": "warn"
+  }
+}
